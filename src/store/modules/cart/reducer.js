@@ -3,10 +3,12 @@ import { ADD_CART, REMOVE_CART } from "./actionsTypes";
 const cartReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_CART:
-      return state;
+      const { product } = action;
+      return [...state, product];
 
     case REMOVE_CART:
-      return state;
+      const { list } = action;
+      return list;
 
     default:
       return state;

@@ -1,9 +1,22 @@
 import { addToCart, removeFromCart } from "./actions";
 
 export const addToCartThunk = (product) => (dispatch) => {
-  dispatch(addToCart(product));
+  const list = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const inCart = list.some((item) => item.id === product.id);
+
+  if (!inCart) {
+    list.push(product);
+    localStorage.setItem("cart", JSON.stringify(list));
+    dispatch(addToCart(product));
+  }
 };
 
 export const removeFromCartThunk = (id) => (dispatch, getStore) => {
-  dispatch(removeFromCart("lista"));
+  const { cart } = getStore();
+
+  const list = cart.filter((product) => product.id !== id);
+  localStorage.setItem("cart", JSON.stringify(list));
+
+  dispatch(removeFromCart(list));
 };

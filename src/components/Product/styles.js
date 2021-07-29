@@ -20,6 +20,9 @@ export const ContainerItem = styled.div`
     text-align: center;
     width: 200px;
     height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   p {
     width: 180px;
