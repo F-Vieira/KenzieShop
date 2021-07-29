@@ -11,7 +11,9 @@ export const ContainerHeader = styled.header`
       display: flex;
       height: 100%;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: ${(props) =>
+        props.inCart ? "space-between" : "flex-start"};
+      margin: 0 2rem;
       li {
         cursor: pointer;
         font-size: 1.3rem;
@@ -22,10 +24,8 @@ export const ContainerHeader = styled.header`
         }
       }
       li + li {
-        position: ${(props) => (props.inCart ? "static" : "fixed")};
-        right: ${(props) => (props.inCart ? "none" : "15px")};
-        /* position: fixed; */
-        /* right: 15px; */
+        position: ${(props) => (props.inCart ? "relative" : "fixed")};
+        right: ${(props) => (props.inCart ? "none" : "2rem")};
 
         span {
           display: flex;
@@ -37,12 +37,9 @@ export const ContainerHeader = styled.header`
           height: 20px;
           border-radius: 50%;
 
-          position: ${(props) => (props.inCart ? "static" : "absolute")};
-          right: ${(props) => (props.inCart ? "none" : "-9px")};
-          bottom: ${(props) => (props.inCart ? "none" : "-11px")};
-          /* position: absolute;
+          position: absolute;
           right: -9px;
-          bottom: -11px; */
+          bottom: -11px;
         }
       }
     }

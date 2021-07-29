@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { addToCart, removeFromCart } from "./actions";
 
 export const addToCartThunk = (product) => (dispatch) => {
@@ -9,6 +10,8 @@ export const addToCartThunk = (product) => (dispatch) => {
     list.push(product);
     localStorage.setItem("cart", JSON.stringify(list));
     dispatch(addToCart(product));
+  } else {
+    toast.warning("Item já adicionado");
   }
 };
 
