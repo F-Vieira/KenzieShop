@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const ContainerItem = styled.div`
-  margin: 3rem;
-  background-color: #2a1f42;
-  color: #f5f5f5;
+  background-color: var(--dark-purple);
+  color: var(--white);
   width: 250px;
-  /* height: 350px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +25,7 @@ export const ContainerItem = styled.div`
     width: 180px;
     text-align: center;
     padding-bottom: 0.3rem;
-    border-bottom: 2px solid #694ba3;
+    border-bottom: 2px solid var(--light-purple);
   }
   button {
     margin: 1rem 0;

@@ -1,19 +1,14 @@
 import { useSelector } from "react-redux";
 import { Product } from "../../components/Product";
-
+import { ContainerProducts } from "./styles";
 export const Products = () => {
   const { products } = useSelector((store) => store);
 
   return (
-    <>
-      {products.map((item) => (
-        <Product
-          key={item.id}
-          img={item.img}
-          name={item.name}
-          price={item.price}
-        />
+    <ContainerProducts>
+      {products.map((product) => (
+        <Product key={product.id} product={product} />
       ))}
-    </>
+    </ContainerProducts>
   );
 };
