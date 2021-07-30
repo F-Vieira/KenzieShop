@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 import { ContainerHeader } from "./styles";
 
 export const Header = () => {
-  const [inCart, setInCart] = useState(false);
-  const history = useHistory();
   const { cart } = useSelector((store) => store);
-
+  const [inCart, setInCart] = useState(false);
   const totalItems = cart.length;
+
+  const history = useHistory();
 
   const handleHome = () => {
     history.push("/");
@@ -23,9 +24,9 @@ export const Header = () => {
     <ContainerHeader inCart={inCart}>
       <nav>
         <ul>
-          <li onClick={handleHome}>Home</li>
+          <li onClick={handleHome}>KenzieShop</li>
           <li onClick={handleCart}>
-            Cart
+            <FaShoppingCart />
             <span>{totalItems}</span>
           </li>
         </ul>

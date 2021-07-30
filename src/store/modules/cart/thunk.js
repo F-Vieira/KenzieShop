@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { addToCart, removeFromCart } from "./actions";
+import { addToCart, removeFromCart, clearCart } from "./actions";
 
 export const addToCartThunk = (product) => (dispatch) => {
   const list = JSON.parse(localStorage.getItem("cart")) || [];
@@ -22,4 +22,14 @@ export const removeFromCartThunk = (id) => (dispatch, getStore) => {
   localStorage.setItem("cart", JSON.stringify(list));
 
   dispatch(removeFromCart(list));
+};
+
+export const clearCartThunk = () => (dispatch, getStore) => {
+  const { cart } = getStore();
+
+  while (cart.length > 0) {
+    cart.pop();
+  }
+
+  dispatch(clearCart(cart));
 };

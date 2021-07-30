@@ -12,6 +12,7 @@ export const ContainerItem = styled.div`
   box-shadow: 0px 3px 20px 10px rgba(0, 0, 0);
   img {
     width: 180px;
+    height: 250px;
     margin-top: 1.5rem;
   }
   h2 {

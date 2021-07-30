@@ -8,6 +8,7 @@ export const ContainerCart = styled.main`
   flex-direction: column;
 
   section:first-child {
+    font-family: var(--text-font-secundary);
     width: 250px;
     text-align: center;
     margin: 0 auto;
@@ -17,38 +18,30 @@ export const ContainerCart = styled.main`
     background-color: var(--very-dark-purple);
     color: var(--white);
     box-shadow: 0px 3px 15px 5px rgba(0, 0, 0, 0.4);
-
-    h2 + p {
-      margin: 10px 0;
+    line-height: 2;
+    h2 {
+      font-size: 1.3rem;
     }
+
     p {
+      font-size: 0.9rem;
       span {
         font-weight: bold;
-        color: #090;
+        color: #a3ffa1;
       }
+    }
+
+    button {
+      margin-top: 1rem;
     }
   }
 
   section + section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 30px 0;
     div {
       justify-self: center;
-      width: 140px;
-      max-height: 350px;
-      img {
-        width: 80px;
-      }
-      h2 {
-        width: 100px;
-      }
-      p {
-        width: 80px;
-      }
-      button {
-        width: 100px;
-      }
     }
   }
 
@@ -60,19 +53,29 @@ export const ContainerCart = styled.main`
     }
     section + section {
       flex: 1;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+
+      div {
+        width: 225px;
+        height: 385px;
+        max-height: 385px;
+        img {
+          width: 150px;
+          height: 200px;
+        }
+      }
     }
   }
 
   @media screen and (min-width: 1024px) {
     section + section {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
-  @media screen and (min-width: 1155px) {
+  @media screen and (min-width: 1440px) {
     section + section {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 `;
