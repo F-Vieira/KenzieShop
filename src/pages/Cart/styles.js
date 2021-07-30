@@ -71,8 +71,8 @@ export const ContainerCart = styled.main`
 
       div {
         width: 225px;
-        height: 385px;
-        max-height: 385px;
+        height: 426px;
+        max-height: 426px;
         img {
           width: 150px;
           height: 200px;
