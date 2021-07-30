@@ -48,7 +48,7 @@ export const ContainerCart = styled.main`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     section:first-child {
-      height: 120px;
+      height: 190px;
       margin-left: 1rem;
     }
     section + section {

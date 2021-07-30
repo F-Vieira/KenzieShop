@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 import { Button } from "../../components/Button";
 import { Product } from "../../components/Product";
 import { clearCartThunk } from "../../store/modules/cart/thunk";
-import { formatValue } from "../../utils/formatValue";
+import formatValue from "../../utils/formatValue";
 
 import { ContainerCart } from "./styles";
 
@@ -33,17 +33,17 @@ export const Cart = () => {
           Total de produtos: <span>{totalItems}</span>
         </p>
         <p>
-          Valor Total: <span>R$ {totalPrice}</span>
+          Valor Total: <span>{formatValue(totalPrice)}</span>
         </p>
         {cart.length > 0 && (
           <Button onClick={handleClearCart}>Finalizar Carrinho</Button>
         )}
       </section>
       <section>
-        {!clear &&
-          cart.map((product) => (
-            <Product key={product.id} product={product} isRemovable />
-          ))}
+        {cart.map((product) => (
+          <Product key={product.id} product={product} isRemovable />
+        ))}
+        {clear && <h1>Carrinho Vazio</h1>}
       </section>
     </ContainerCart>
   );

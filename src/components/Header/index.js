@@ -8,6 +8,8 @@ import { ContainerHeader } from "./styles";
 export const Header = () => {
   const { cart } = useSelector((store) => store);
   const [inCart, setInCart] = useState(false);
+  // const [totalItems] = useState(cart.length);
+
   const totalItems = cart.length;
 
   const history = useHistory();
