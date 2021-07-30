@@ -43,6 +43,20 @@ export const ContainerCart = styled.main`
     div {
       justify-self: center;
     }
+    .empty_cart {
+      color: #f5f5f540;
+      font-family: var(--text-font-secundary);
+      text-align: center;
+      width: 255px;
+      height: 135px;
+      h1 {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+      svg {
+        font-size: 4rem;
+      }
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -63,6 +77,10 @@ export const ContainerCart = styled.main`
           width: 150px;
           height: 200px;
         }
+      }
+      .empty_cart {
+        grid-column: 1/5;
+        align-self: center;
       }
     }
   }

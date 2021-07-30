@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { MdRemoveShoppingCart } from "react-icons/md";
 
 import { Button } from "../../components/Button";
 import { Product } from "../../components/Product";
@@ -13,10 +14,18 @@ export const Cart = () => {
   const { cart } = useSelector((store) => store);
   const dispatch = useDispatch();
 
-  const [clear, setClear] = useState(false);
+  const [clear, setClear] = useState(true);
   const totalItems = cart.length;
 
   const totalPrice = cart.reduce((acc, cur) => cur.price + acc, 0);
+
+  useEffect(() => {
+    if (totalItems > 0) {
+      setClear(false);
+    } else {
+      setClear(true);
+    }
+  }, [totalItems]);
 
   const handleClearCart = () => {
     dispatch(clearCartThunk());
@@ -40,10 +49,16 @@ export const Cart = () => {
         )}
       </section>
       <section>
-        {cart.map((product) => (
-          <Product key={product.id} product={product} isRemovable />
-        ))}
-        {clear && <h1>Carrinho Vazio</h1>}
+        {!clear &&
+          cart.map((product) => (
+            <Product key={product.id} product={product} isRemovable />
+          ))}
+        {clear && (
+          <div className="empty_cart">
+            <h1>Carrinho Vazio</h1>
+            <MdRemoveShoppingCart />
+          </div>
+        )}
       </section>
     </ContainerCart>
   );
